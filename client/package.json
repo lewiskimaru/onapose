@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint src --ext .ts,.tsx"
+    "lint": "eslint src --ext .ts,.tsx",
+    "copy-mediapipe": "mkdir -p public/mediapipe/holistic && cp ../node_modules/@mediapipe/holistic/holistic.js ../node_modules/@mediapipe/holistic/holistic.binarypb ../node_modules/@mediapipe/holistic/holistic_solution_packed_assets.data ../node_modules/@mediapipe/holistic/holistic_solution_packed_assets_loader.js ../node_modules/@mediapipe/holistic/holistic_solution_simd_wasm_bin.data ../node_modules/@mediapipe/holistic/holistic_solution_simd_wasm_bin.js ../node_modules/@mediapipe/holistic/holistic_solution_simd_wasm_bin.wasm ../node_modules/@mediapipe/holistic/holistic_solution_wasm_bin.js ../node_modules/@mediapipe/holistic/holistic_solution_wasm_bin.wasm ../node_modules/@mediapipe/holistic/pose_landmark_full.tflite ../node_modules/@mediapipe/holistic/pose_landmark_heavy.tflite ../node_modules/@mediapipe/holistic/pose_landmark_lite.tflite public/mediapipe/holistic/",
+    "postinstall": "npm run copy-mediapipe"
   },
   "dependencies": {
     "@mediapipe/camera_utils": "^0.3.1675466862",
@@ -17,11 +19,12 @@
     "@pixiv/three-vrm": "^3.4.0",
     "@react-three/drei": "^10.0.0",
     "@react-three/fiber": "^9.0.0",
+    "framer-motion": "^12.38.0",
     "kalidokit": "^1.1.5",
-    "socket.io-client": "^4.7.0",
     "leva": "^0.10.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "socket.io-client": "^4.7.0",
     "three": "^0.170.0",
     "zustand": "^5.0.0"
   },
@@ -31,6 +34,7 @@
     "@types/three": "^0.170.0",
     "@vitejs/plugin-react": "^4.3.0",
     "typescript": "^5.4.5",
-    "vite": "^6.0.0"
+    "vite": "^6.0.0",
+    "vite-plugin-static-copy": "^4.0.0"
   }
 }

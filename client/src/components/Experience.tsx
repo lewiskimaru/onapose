@@ -1,40 +1,75 @@
-import { CameraControls, Environment } from "@react-three/drei";
-import { useControls } from "leva";
-import { useRef } from "react";
+import { CameraControls, Environment, useGLTF } from "@react-three/drei";
+import { useThree, useFrame } from "@react-three/fiber";
+import { Suspense, useRef, useEffect } from "react";
+import * as THREE from "three";
 import { VRMAvatar } from "./VRMAvatar";
+import { useSettings, WALLPAPERS } from "../hooks/useSettings";
+import { GalaxyWallpaper } from "./wallpapers/GalaxyWallpaper";
+import { NebulaWallpaper } from "./wallpapers/NebulaWallpaper";
+import { VoidWallpaper } from "./wallpapers/VoidWallpaper";
+
+interface ExperienceProps {
+  avatar: string;
+}
+
+function GlbWallpaper({ glb }: { glb: string }) {
+  const { scene } = useGLTF(glb);
+  return <primitive object={scene} />;
+}
 
 /**
- * R3F scene: lighting, environment, camera controls, and the VRM avatar.
- * Avatar is selectable via the Leva panel.
+ * Fix: R3F defaults to ACESFilmicToneMapping which crushes dark particle
+ * colors to near-black. We switch to LinearToneMapping with exposure 1.0
+ * so AdditiveBlending particles render at their actual brightness.
+ * The avatar still looks correct because it's lit by the HDRI.
  */
-export function Experience() {
-  const controls = useRef(null);
+function ToneMappingFix() {
+  const { gl } = useThree();
+  useEffect(() => {
+    gl.toneMapping = THREE.LinearToneMapping;
+    gl.toneMappingExposure = 1.0;
+  }, [gl]);
+  return null;
+}
 
-  const { avatar } = useControls("VRM", {
-    avatar: {
-      value: "default.vrm",
-      options: [
-        "default.vrm",
-        "onapose-model1.vrm",
-        "262410318834873893.vrm",
-        "3636451243928341470.vrm",
-        "3859814441197244330.vrm",
-        "8087383217573817818.vrm",
-      ],
-    },
-  });
+function Wallpaper({ id, glb }: { id: string; glb?: string }) {
+  if (glb) {
+    return (
+      <Suspense fallback={null}>
+        <GlbWallpaper glb={glb} />
+      </Suspense>
+    );
+  }
+  if (id === "galaxy") return <GalaxyWallpaper />;
+  if (id === "nebula") return <NebulaWallpaper />;
+  if (id === "void")   return <VoidWallpaper />;
+  return null;
+}
+
+export function Experience({ avatar }: ExperienceProps) {
+  const controls = useRef(null);
+  const wallpaperId = useSettings((s) => s.wallpaper);
+  const wallpaperDef = WALLPAPERS.find((w) => w.id === wallpaperId);
 
   return (
     <>
+      <ToneMappingFix />
+
       <CameraControls
         ref={controls}
         maxPolarAngle={Math.PI / 2}
         minDistance={1}
         maxDistance={10}
       />
-      <Environment preset="sunset" />
-      <directionalLight intensity={2} position={[10, 10, 5]} />
-      <directionalLight intensity={1} position={[-10, 10, 5]} />
+
+      {/* HDRI lights the avatar — not used as visible background */}
+      <Environment preset="night" background={false} />
+
+      <Wallpaper id={wallpaperId} glb={wallpaperDef?.glb} />
+
+      <ambientLight intensity={0.2} />
+      <pointLight position={[0, 2, 2]}   intensity={1.5} color="#6699ff" />
+      <pointLight position={[-2, 1, -1]} intensity={0.8} color="#ff6644" />
 
       <group position-y={-1.25}>
         <VRMAvatar modelPath={`models/${avatar}`} />

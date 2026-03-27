@@ -7,6 +7,7 @@ import { Euler, Object3D, Quaternion, Vector3 } from "three";
 import { lerp } from "three/src/math/MathUtils.js";
 import { useVideoRecognition } from "../hooks/useVideoRecognition";
 import { useWebSocket } from "../hooks/useWebSocket";
+import { useBridgeTelemetry } from "../hooks/useBridgeTelemetry";
 import type { MocapFrame, RiggedFace, RiggedPose, RiggedHand } from "@onapose/shared";
 
 // Allocated once at module level — avoids per-frame GC pressure
@@ -28,6 +29,7 @@ export function VRMAvatar({ modelPath }: VRMAvatarProps) {
 
   const { camera } = useThree();
   const { send } = useWebSocket();
+  const recordFrame = useBridgeTelemetry((s) => s.recordFrame);
 
   const setResultsCallback = useVideoRecognition((state) => state.setResultsCallback);
   const videoElement = useVideoRecognition((state) => state.videoElement);
@@ -106,9 +108,10 @@ export function VRMAvatar({ modelPath }: VRMAvatarProps) {
           timestamp: Date.now(),
         };
         send(frame);
+        recordFrame(frame);
       }
     },
-    [videoElement, currentVrm, send]
+    [videoElement, currentVrm, send, recordFrame]
   );
 
   useEffect(() => {

@@ -1,0 +1,93 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Puppeteer
+.local-chromium/
+
+# VRM models (optional - uncomment if you don't want to commit models)
+# *.vrm
+
+# Config overrides
+config/local.yaml
+config/production.yaml
+
+# PM2
+.pm2/
+
+# Misc
+*.pid
+*.seed
+*.pid.lock
+
+# Ignored Folders
+fork/
+forks/
+
+# Workspace build artifacts
+shared/dist/
+client/dist/
+bridge/dist/
+
+# NestJS
+bridge/.nest/
+

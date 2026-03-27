@@ -1,0 +1,110 @@
+chunk-ZJBOAT7Y.js?v=f66c71f0:19835 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+VRMAvatar.tsx:48 [vrm] loaded: VRM
+socket__io-client.js?v=1be9b88a:1500 WebSocket connection to 'ws://localhost:8080/socket.io/?EIO=4&transport=websocket' failed: WebSocket is closed before the connection is established.
+doClose @ socket__io-client.js?v=1be9b88a:1500
+VRMAvatar.tsx:48 [vrm] loaded: VRM
+useWebSocket.ts:22 [ws] connected to bridge at http://localhost:8080
+holistic_solution_simd_wasm_bin.js:9 still waiting on run dependencies:
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/pose_detection/pose_detection.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/palm_detection/palm_detection_lite.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/palm_detection/palm_detection_full.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/holistic_landmark/hand_recrop.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/hand_landmark/handedness.txt
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/hand_landmark/hand_landmark_full.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_landmark/face_landmark_with_attention.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_landmark/face_landmark.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_geometry/data/geometry_pipeline_metadata_landmarks.binarypb
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_detection/face_detection_short_range.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: datafile_blaze-out/k8-opt/genfiles/third_party/mediapipe/web/solutions/holistic/holistic_solution_packed_assets.data
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 (end of list)
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 still waiting on run dependencies:
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/pose_detection/pose_detection.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/palm_detection/palm_detection_lite.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/palm_detection/palm_detection_full.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/holistic_landmark/hand_recrop.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/hand_landmark/handedness.txt
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/hand_landmark/hand_landmark_full.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_landmark/face_landmark_with_attention.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_landmark/face_landmark.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_geometry/data/geometry_pipeline_metadata_landmarks.binarypb
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_detection/face_detection_short_range.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: datafile_blaze-out/k8-opt/genfiles/third_party/mediapipe/web/solutions/holistic/holistic_solution_packed_assets.data
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 (end of list)
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 still waiting on run dependencies:
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/pose_detection/pose_detection.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/palm_detection/palm_detection_lite.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/palm_detection/palm_detection_full.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/holistic_landmark/hand_recrop.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/hand_landmark/handedness.txt
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/hand_landmark/hand_landmark_full.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_landmark/face_landmark_with_attention.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_landmark/face_landmark.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_geometry/data/geometry_pipeline_metadata_landmarks.binarypb
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_detection/face_detection_short_range.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: datafile_blaze-out/k8-opt/genfiles/third_party/mediapipe/web/solutions/holistic/holistic_solution_packed_assets.data
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 (end of list)
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 still waiting on run dependencies:
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/pose_detection/pose_detection.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/palm_detection/palm_detection_lite.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/palm_detection/palm_detection_full.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/holistic_landmark/hand_recrop.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/hand_landmark/handedness.txt
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/hand_landmark/hand_landmark_full.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_landmark/face_landmark_with_attention.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_landmark/face_landmark.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_geometry/data/geometry_pipeline_metadata_landmarks.binarypb
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: fp /third_party/mediapipe/modules/face_detection/face_detection_short_range.tflite
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 dependency: datafile_blaze-out/k8-opt/genfiles/third_party/mediapipe/web/solutions/holistic/holistic_solution_packed_assets.data
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+holistic_solution_simd_wasm_bin.js:9 (end of list)
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9

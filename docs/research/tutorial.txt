@@ -1,0 +1,132 @@
+00:00:15
+Come [Music] in my [Music] foreign. Okay, please don't judge my singing too harsh. I'm just here to bring this avatar to life. Hi, in this video you're going to learn how to bring a VRM avatar to life using React Fiber and Media Pipe for real-time face and hand tracking. We will cover what VRM avatars are, how to load and animate them in a 3D scene, and how to make them mimic your expressions and gestures with just a webcam. Before diving into the video tutorial, if you are new to 3D web
+
+00:01:15
+development or want to build a solid foundation, consider exploring my course, React 3 Fiber, the ultimate guide to 3D web development, a project-based course with everything you need to know to start creating professional 3D web experiences with 3JS and React. Let's have a look at what VRM are. VRM stands for virtual reality model. It's a 3D avatar format widely used by VTubers and in games thanks to its standardized structure that makes it easy to reuse the same character across different platforms and experiences. You
+
+00:01:49
+can find free avatars online or create your own using the free tool Void Studio. There are also utility libraries available to load VRM models into engines like Unity and 3JS making integration super accessible for developers. Let's start by cloning the starter pack I prepared for you. Link in the description below. Click here to copy the URL to the clipboard. In a terminal, run git clone and paste the URL. Once finished, open the repository with open folder open. And to start it, run yarn to install the
+
+00:02:28
+dependencies and yarndev to run the development server and follow the URL. You should see this 3D stage ready for our singer. It's a modified version of a tutorial from Polygon Runway. Check out his courses if you want to learn Blender. Then you can see that the lights are blooming. It's because I added some post-processing effects for the best effect. And you have a few UI elements added with Tailwind CSS. All right, we're ready to go. What we want to do is to load a VRM avatar in the
+
+00:03:02
+middle of our scene. The starter pack repository contain a few models that we will be able to use during the tutorial. But first, let me explain to you where you can find yours or even create yours. You have a void hub that contain many VRM model. Not all of them are available for download or for public use. I don't know if there is a filter somewhere, but usually what I do is I open one I like. And here, can you use this model? You can see it's no. So, bad luck. Go back to the list. Open some of them randomly
+
+00:03:37
+and pray that this one you are able to use it. Scroll down and it's yes. But sometimes you have used this model and they don't have a download option. This one has. So you just accept the terms and download it. You can also find a VRM model on SketchFab. Just type VRM and you will have a list of a few. Or if you are brave enough, you have Veroid Studio that allows you to create your own. It has a Windows and Mac app allowing you to create the avatar of your dream. And they even have a documentation page
+
+00:04:12
+explaining you how to export your model as a VRM file that you can then later use in a 3JS project. Once you have your VRM file, you will need to load them with 3JS. We have seen that VRM file is something on top of glTF. It's an advanced file format that relies on gltf but with some additional features. And that's exactly what this package is doing is to provide us some util functions to do the extra work needed on top of the gltf file. It is made by Pixie which are the creator of void
+
+00:04:47
+studio and you have the documentations showing you how to do it. It's meant for 3JS, but together we'll see how to do it with React 3 fiber. Not a big difference. And you also have examples showing you how to do different things as rendering a VRM, playing animations, and so on. You have the example, the preview of it, but you also have the source code helping you to perform some specific actions. All right, let's load the library. yarn add at pixive slash3-vr enter perfect now we can run a
+
+00:05:28
+yarndev and we will create a component inside our components we will name vrm avatar jsx let's export vrm avatar it will take the avatar which will be the file name and rest of the props if we want to move it for the main container to load the avatar we will use use gltf will get access to the scene with use gltf of models/ the avatar but because it is a vm file we need to enhance our gltf loader if you look at the documentation when they create the gltf loader They register a plugin a VRM loader
+
+00:06:19
+plugin on top of the parser to have access to the loader with used gltf hook. You can see it's use drao we will use the default value. So we pass undefined undefined and extend loader is a function having access to the loader. So inside it we can perform our actions on the loader and we simply need to do this what they are doing here. We can copy paste. Be sure that we import VRM loader plug-in from Pixive 3. It should be good. Then we return our group. We pass the props. So we have control over it. And in a
+
+00:07:04
+primitive we will pass the scene we loaded. Now let's try to use it inside our experience. We will use use controls from leva to have a visual helper to choose between different avatars. We'll pick one default file and provide different options so we can switch between them. Don't forget to import use controls. And now we can import our avatar here next to the stage. So the Y position is perfectly aligned. VRM avatar our component and the avatar will be our avatar. Let's try it. And we
+
+00:07:47
+can see we have our avatar in pose but it's facing backwards. And the issue is some avatars are facing this side while this one is facing this side. So let's make it conditional. Back to VRM avatar rotation Y if this is not this avatar the one that is facing toward us we will rotate it otherwise it will be zero it's ugly for a non-tutorial project I will code it differently but here it works now if we look at free range is facing us and the other avatar is also facing us same for all the different ones now
+
+00:08:32
+let's see how we can impact their blend shape, closing their eyes, and so on, but also play animations. Let's start with the facial expressions. Because we are using a VRM avatar, we need to do it differently than usual. We won't be impacting the morph target on the skin mesh. Well, this is what the library will do for us, but we will do it ourselves differently because of the VRM library. To learn how to do it, we can open the examples. And the one interesting us is expressions. Here you
+
+00:09:06
+can see she is blinking one eye and opening closing her mouth. Let's check the source code of it packages. Then inside three VRM examples and when we use these expressions and from here you just have to copy the way they are doing it and adapt it to your project logic either in 3JS or React 3 fiber like me. Okay, this is for the loading. We can see they are doing some optimization. Let's try to do them too. Let's go inside the use effect when the scene is loaded. And we perform these
+
+00:09:47
+optimizations. They're using VRM utils. They are performing it on the scene. We have it from the use gltf. No need to use gltf dot. And then they are combining morphs on vrm. And here is the interesting part. You can see that vrm is equal to user data.vm VRM which means they add extra data in the JTF file inside user data. I think it's the library doing it when it's parsing the file to get access to the user data. We can get it from use gltf and now we can do like they are doing conv is equal to user data vrm and
+
+00:10:31
+let's console log it to see what it is. Now a few optimization must have been done. You can see we have a steady FPS for now. And in the console VRM loaded and we have some details. We have an expression manager object with the different expressions. We can do blink blink left look left. Some mouth expressions and some more data humanoid containing the different bones and so on. All right, that was a quick degression. Now we want to play with the face and you can see that they are using the expression manager and setting
+
+00:11:07
+values to them. Is it again here current VRM? I guess it's simply here the one from user data. Let's play with it. Okay, we will declare some control to choose how to affect the different expressions. These ones are for the mouse shape. I E O. Then we have the eyes and some emotions. With use controls, we will have some sliders to affect them. Perfect. Now, in a use frame, we will simply adjust the expressions. Use frame if we don't have user data. VRM, we can do anything. So, we simply return. Otherwise, we call
+
+00:11:57
+user data. VRM dot expression manager dot set value. And for angry, the first emotion, we set the value we have from our control. Then we do it for sad and happy. If we try the different expressions, nothing is happening. Let's check if we missed something in animate. And they also need to call update with delta time. Let's do it too. We need the delta for each frame. And user data VRM.update update and we pass delta. All right, it was opened as an angry very scary, sad and happy. If we combine it gives
+
+00:12:45
+some mixed feeling. Perfect. Let's connect the other ones. But instead of doing it line by line, we will create a lurp function. We will name it a lurp expression. It will take the name what you have here, the value what you have here and the lurp factor. Currently we were not lurping so they don't exist. And then we do the same set value for the name and the value we will lurp from the current value that we can get with get value. And then we we lurp toward the new value with the lurp factor.
+
+00:13:19
+Don't forget to import the lurp from math utils. And instead of writing line by line for each emotion, we will create an array with the name and the value for each of them. Then we will iterate and call lurp expression with the name, the value, and the lurp factor. We want it to be fast. So we multiply delta by 12. Let's try it. We have the R E. It's opening wide the mouth and you can combine them. Oh, perfect. So, you could use the lip sync tutorial with this avatar, too. Then you can blink the eyes and we still
+
+00:14:09
+have our emotions. Excellent. Now, what we want to do is play animations because we don't want to see them in tipples always. Again, they have some example for it. animations. It's a very simple one, but you can see how it work. But this one is if you want to control manually bones. You have the humanoid animation to be able to load a mixamo animation and play it on the VRM model. Exactly what we want to achieve. We need to drag and drop a mixo animation FBX. Let's do it. There are on the
+
+00:14:42
+starter project. Drag and drop. And you can see it's playing the animation. Let's make it dance. and it's dancing. You can see that because it is a VRM avatar, the hair are animated automatically based on some of the bones contained by the avatar. Of course, you can download the animations you want on Mixamo. Go there and login. Then go to characters and pick one of the default one. For example, Remy before going to animations so you are sure the rig structure is the basic the default one.
+
+00:15:18
+Then go to animation. Pick one you like. And when you download it, be sure you don't take the skin because you don't want the 3D model. You just want the animation data for it without skin and download. Once you have your animations, let's see how to load them. Go to examples. And the one we want is humanoid animation. It's a bit more complicated because they have some code to do the mapping of the different mix ammo bone to the VRM rig. Let's simply take it. We can copy everything. I think
+
+00:15:53
+this button is doing it too. And inside a util folder we will keep the same naming. It is mixamo VRM rig map.js. paste it and save. But then the other one we will need is a load mixo animation. And this one is also doing the FBX loader to load the file. So we will modify it a bit. But let's do it together. First we take everything because it's different. We can name it differently. Let's name it remap mix animation to vrm.js JS and paste the code. We can get rid of the commands and we want to rename it remap mixo
+
+00:16:45
+animation to VRM. Instead of loading the FBX, we want to plug ourself directly here because we will pass the FBX directly. So we need the assets and not the URL. It will take VRM and asset. So we can get rid of the loading on top and the final part which is here is doing some processing on the bones. You can just ignore it or if you are curious have a look at what it is. Okay, now we can save it. Go back to VRM avatar and let's load the FBX first. So right after loading the model, we can load them. Let's name it
+
+00:17:35
+asset A, B, and C. Not the best naming, but again, this is just a tutorial. And because with the FBX, we will get we will need to call the remap function only once. We will do it inside a use memo when asset A changes, but also when user data.vm VRM change maybe we can do like the what they were doing current VRM is equal to user data VRM here we use it and we will have animation clip A is equal to to the use memo and our clip will be equal to remap mix animo animation to VRM with current VRM And
+
+00:18:28
+the asset we want to use asset A. And then we want to name the animation. For that we can do clip.name. And this one it's swing dancing. Perfect. And we return the clip. So it's been processed only when the asset is loaded and current VRM 2. We do exactly the same for the clip B and clip C. So now we have our animations. To play animations on a model to get the actions, we use use animations hook. It needs an array of animation clip. For us, it's animation clip A, B, and C. We create an array
+
+00:19:13
+with those clips. And the scene, we will use current VRM scene. Then to be able to choose between the different animation, the one we want to play. Inside our controls, we will add animation and we add it here. We will have idle by default, but we can choose none. It will be the tose or swing dancing or thriller part two. Now inside a use effect when the actions change. If the animation is known, we return. If not, we play the animation and when it change, we stop it. We also want it to be triggered when animation change. If
+
+00:19:56
+we try it, we have a very scary result. This is because when we remap it, we need to do it only once. And because we are in strict development mode from React, it will call the use memo multiple times, not in production, but in development. So what we need to do here is the clip that we get we will clone it. This way we are sure that we don't destroy the original animation clip. Let's try it. And now it works much better if we change the avatar. This one isn't trigger but let's change the animation. And it's working
+
+00:20:38
+perfectly. Okay. Now we know how to control our avatar. the blend shapes also the animations and let's see how we can create a Vtuber studio using our webcam to control the avatar for this we will use media pipe library which is provided by Google and we will use its lovely face landmark detection guide inside their holistic package you have web code example and guide and then based on the data we will get from media pipe we will use this library named kalido kit that will do the mapping for us between
+
+00:21:16
+our mouse shape, our eyes and pose to convert it to VRM avatar data. The documentation is very userfriendly and their example contains the media pipe part which helped me draft the project very quickly compared to if I had to do it myself. If you go to their script.js, you can see this part setup media pipe holistic instance. They're doing everything to load media pipe. We simply have to copy paste it and adjust it to our project. The main difference is they are not using a blender and a build. So
+
+00:21:52
+they are doing their import this way. But as instead we can use the npm package. We will need three package from media pipe. The first one holistic for the face and pose recognition. Then we have camera utils to get the data from our camera to send it to holistic and then drawing utils to convert the result they get from holistic into something we can represent on screen on a canva. Let's add them into our project. All right, yarn dev and let's go back to our code. Let's create a new
+
+00:22:31
+component that we will name camera widget.jsx and you can copy paste my component. I will explain it to you. What we have is a video element for displaying our webcam capture. Then we have a canvas where we will draw what the algorithm is detecting from our camera. Then we have buttons to start or stop the process. And then it's the code from the example calling holistic to do the video recognition using our video camera here. And then when we have results, we call a draw result that will draw it into the canvas. And then we
+
+00:23:14
+will create a store named video recognition to be able to pass the result we have into our VRM avatar component. Let's create this hook. Use video recognition inside a folder named hooks. Use video recognition.js to create our store. We will need sustain library yarn dev. Now we can create our store. We will need access to the video element which is the one from our component and then a results call back function that we can call to interconnect our widget with our VRM avatar component. Now let's try to add
+
+00:23:58
+the component inside our app. We have the UI. We also want our camera widget component. On the bottom left you have this camera button. If it is the first time, it will ask for you some permissions. And now you can see it's detecting my face and it's drawing different things. It can see my hand because we enabled the pose mode. Everything we need. Now let's try to interpret this data inside our VRM avatar component. We will need to access two thing from our store. First set results call back which will be a
+
+00:24:36
+function that will be called once the detection is done and video element to have access to the video for the recognition itself. Now to prepare our results call back function we will need a few variable rigged face rigged pose left hand and right hand. This is where we will store the data we get from the callback to be able to apply it later inside our use frame without causing any rerender. Inside our callback function, we will need to use calidocit to get those data for the face, the pose and
+
+00:25:10
+the hand. What we need to do is to callit.face.solve and face landmark array which are the data we get from media pipe. Then it requires the video element to be able to do the transformation. And we do it for the face, the pose and the hand. We create our function in a use call back so it doesn't recreate it at each rerender when the video element change and current VRM. Then if we don't have any of them, we can do it. So we just return otherwise we can do the processing. So the callback function take results as a
+
+00:25:50
+parameter and it has access to face landmark inside our references rigged phase.curren we will use face solve we pass face landmark and then adjust the parameters to whatever works best for you. Just be sure to use the same runtime that you are using as it is media pipe. Same for the size of the image that need to correspond to the input camera you are using. If we go to camera widget we are using a 640 and 480. Good to verify because it is the opposite with and we do the same for the pose and the left and right hand. I
+
+00:26:39
+needed to switch which one is the left and right to match what I have as a mirror effect. Now we have our call back function in a use effect. We can assign it. We have our results call back. We need to set the result call back to it. First let's check if the connection is working. Here we can console.log the results. Let's try it. By default, we don't have anything. We need to enable the camera detection. And we have an issue because I didn't do the import. Here it is. Face. It needs to be from Kalido kit. I
+
+00:27:21
+think I also forget to install it. Yarn added kit. Okay. Now I should be able to see it here. Perfect for the face pose and hunt. Okay, let's try it again. Now you have the camera and we can see what we get. We have the image, the canvas, we have face landmarks, but you can see the data it's unreadable for us. It's what we see on the canvas. We wouldn't able to manually convert it to blend shape. And this is where Kalido kit if instead we don't log the results of this but inside our use frame we
+
+00:28:06
+can go below console log and rigged facecurren the rigged face. This is what we get from face.solve based on face landmarks. And what Kalid doi does for us is incredible. We have the eyes, the head, their position, the mouse, pupil, and on the mouse, you also have the shape to know which blend shape to show. We can simply use it instead of our values from our controls. We can make it conditional. So, if we don't have a video element, we are not in facial recognition. So, we can just do it conditionally here.
+
+00:28:54
+Otherwise, we do our processing. If we have rigged facecurren, we create our array but using rigged face.curren.mmouth.shape. And for the eyes, it the same, but it's one minus the value. And then through each item, we call lurp expression the same way we did before. Let's check what we have. Enable the camera. If I open my mouth, you can see it's opening it too. And if I blink, it's doing it too. Excellent. Then we simply do the same logic for the rest. For the eyes, we look at a target based on the
+
+00:29:39
+pupil. Then we have some data for the rotation of the neck, for the rotation of the different bones in a rigged pose. We'll do it for each of the different bones of the arms and the hand. We create a generic rotate bone function as we did for the lurp. And to make the character look in the same direction as us, we are using the camera and we create a target that will be equal to where the camera is looking at. And now we are able to control the avatar, its eyes. Let's disable the animation so we
+
+00:30:14
+can control the hand and sing nicely. Thank you for watching. I hope you enjoyed this video. Please hit the like button to help this channel be more visible to other creative developers. Don't forget to subscribe to not miss my upcoming tutorials. If you want to continue your 3D web development journey, give a look to my course link in the description or watch one of my other videos like this one available here.
+

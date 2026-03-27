@@ -1,0 +1,44 @@
+import { CameraControls, Environment } from "@react-three/drei";
+import { useControls } from "leva";
+import { useRef } from "react";
+import { VRMAvatar } from "./VRMAvatar";
+
+/**
+ * R3F scene: lighting, environment, camera controls, and the VRM avatar.
+ * Avatar is selectable via the Leva panel.
+ */
+export function Experience() {
+  const controls = useRef(null);
+
+  const { avatar } = useControls("VRM", {
+    avatar: {
+      value: "default.vrm",
+      options: [
+        "default.vrm",
+        "onapose-model1.vrm",
+        "262410318834873893.vrm",
+        "3636451243928341470.vrm",
+        "3859814441197244330.vrm",
+        "8087383217573817818.vrm",
+      ],
+    },
+  });
+
+  return (
+    <>
+      <CameraControls
+        ref={controls}
+        maxPolarAngle={Math.PI / 2}
+        minDistance={1}
+        maxDistance={10}
+      />
+      <Environment preset="sunset" />
+      <directionalLight intensity={2} position={[10, 10, 5]} />
+      <directionalLight intensity={1} position={[-10, 10, 5]} />
+
+      <group position-y={-1.25}>
+        <VRMAvatar modelPath={`models/${avatar}`} />
+      </group>
+    </>
+  );
+}

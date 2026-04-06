@@ -1,6 +1,7 @@
 import { Panel } from "./Panel";
 import { useWsStatus } from "../hooks/useWsStatus";
-import { useSettings, WALLPAPERS } from "../hooks/useSettings";
+import { useSettings, WALLPAPERS, SOLVER_OPTIONS } from "../hooks/useSettings";
+import { usePanelState } from "../hooks/usePanelState";
 
 const MODELS = [
   "default.vrm",
@@ -16,7 +17,8 @@ interface SettingsPanelProps {
   onAvatarChange: (v: string) => void;
 }
 
-// Apple HIG dark surface hierarchy
+// ─── Style tokens ─────────────────────────────────────────────────────────────
+
 const card: React.CSSProperties = {
   background: "#1c1c1e",
   borderRadius: 8,
@@ -53,15 +55,57 @@ const selectStyle: React.CSSProperties = {
   outline: "none",
 };
 
+const infoRow = (label: string, value: string) => (
+  <div key={label} style={{ ...innerCard, marginTop: 4 }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
+      <span style={{ fontSize: 11, color: "rgba(255,255,255,0.35)", flexShrink: 0 }}>{label}</span>
+      <span style={{ fontSize: 11, color: "rgba(255,255,255,0.65)", textAlign: "right" }}>{value}</span>
+    </div>
+  </div>
+);
+
+// ─── Toggle component ─────────────────────────────────────────────────────────
+
+function Toggle({ on, onChange }: { on: boolean; onChange: (v: boolean) => void }) {
+  return (
+    <button
+      onClick={() => onChange(!on)}
+      style={{
+        width: 44, height: 26, borderRadius: 13, border: "none", cursor: "pointer",
+        background: on ? "#30d158" : "#3a3a3c",
+        position: "relative", transition: "background 0.2s",
+        flexShrink: 0,
+      }}
+    >
+      <div style={{
+        position: "absolute", top: 3,
+        left: on ? 21 : 3,
+        width: 20, height: 20, borderRadius: "50%",
+        background: "#fff",
+        transition: "left 0.2s",
+        boxShadow: "0 1px 3px rgba(0,0,0,0.4)",
+      }} />
+    </button>
+  );
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
 export function SettingsPanel({ avatar, onAvatarChange }: SettingsPanelProps) {
   const status = useWsStatus((s) => s.status);
   const statusColor = { connected: "#34c759", connecting: "#ff9f0a", disconnected: "#ff3b30" }[status];
-  const { cameraPrivacy, setCameraPrivacy, wallpaper, setWallpaper } = useSettings();
+  const { cameraPrivacy, setCameraPrivacy, wallpaper, setWallpaper, solver, setSolver } = useSettings();
+  
+  const { panels, open, close } = usePanelState();
+  const debugVisible = panels.debug === "open";
+  const setDebugVisible = (v: boolean) => v ? open("debug") : close("debug");
+
+  const activeSolver = SOLVER_OPTIONS.find((s) => s.id === solver);
 
   return (
-    <Panel id="settings" title="Settings" defaultX={window.innerWidth - 360} defaultY={80} defaultW={312} defaultH={320}>
+    <Panel id="settings" title="Settings" defaultX={window.innerWidth - 360} defaultY={80} defaultW={312} defaultH={600}>
 
-      {/* Wallpaper card */}
+      {/* ── Wallpaper ────────────────────────────────────────────────────────── */}
       <div style={card}>
         <div style={sectionLabel}>Wallpaper</div>
         <select
@@ -75,7 +119,7 @@ export function SettingsPanel({ avatar, onAvatarChange }: SettingsPanelProps) {
         </select>
       </div>
 
-      {/* Avatar card */}
+      {/* ── Avatar ───────────────────────────────────────────────────────────── */}
       <div style={card}>
         <div style={sectionLabel}>Avatar</div>
         <select style={selectStyle} value={avatar} onChange={(e) => onAvatarChange(e.target.value)}>
@@ -85,7 +129,40 @@ export function SettingsPanel({ avatar, onAvatarChange }: SettingsPanelProps) {
         </select>
       </div>
 
-      {/* Camera card */}
+      {/* ── Pose Solver ──────────────────────────────────────────────────────── */}
+      <div style={card}>
+        <div style={sectionLabel}>Pose Solver</div>
+        <select
+          style={selectStyle}
+          value={solver}
+          onChange={(e) => setSolver(e.target.value as typeof solver)}
+        >
+          {SOLVER_OPTIONS.map((s) => (
+            <option key={s.id} value={s.id}>{s.label}</option>
+          ))}
+        </select>
+        {activeSolver && (
+          <div style={{ ...innerCard, marginTop: 8 }}>
+            <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", lineHeight: 1.5 }}>
+              {activeSolver.description}
+            </div>
+          </div>
+        )}
+        {/* Show warning badge when using custom solver (still in development) */}
+        {solver === "custom" && (
+          <div style={{
+            ...innerCard, marginTop: 4,
+            background: "rgba(255,159,10,0.12)",
+            border: "1px solid rgba(255,159,10,0.25)",
+          }}>
+            <div style={{ fontSize: 11, color: "#ff9f0a" }}>
+              ⚠ Custom solver — dev mode. Switch to Kalidokit if tracking behaves unexpectedly.
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* ── Camera ───────────────────────────────────────────────────────────── */}
       <div style={card}>
         <div style={sectionLabel}>Camera</div>
         <div style={innerCard}>
@@ -96,49 +173,44 @@ export function SettingsPanel({ avatar, onAvatarChange }: SettingsPanelProps) {
                 {cameraPrivacy ? "Skeleton only — feed hidden" : "Raw feed visible"}
               </div>
             </div>
-            <button
-              onClick={() => setCameraPrivacy(!cameraPrivacy)}
-              style={{
-                width: 44, height: 26, borderRadius: 13, border: "none", cursor: "pointer",
-                background: cameraPrivacy ? "#30d158" : "#3a3a3c",
-                position: "relative", transition: "background 0.2s",
-                flexShrink: 0,
-              }}
-            >
-              <div style={{
-                position: "absolute", top: 3,
-                left: cameraPrivacy ? 21 : 3,
-                width: 20, height: 20, borderRadius: "50%",
-                background: "#fff",
-                transition: "left 0.2s",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.4)",
-              }} />
-            </button>
+            <Toggle on={cameraPrivacy} onChange={setCameraPrivacy} />
           </div>
         </div>
       </div>
 
-      {/* MediaPipe card */}
+      {/* ── Developer ────────────────────────────────────────────────────────── */}
+      <div style={card}>
+        <div style={sectionLabel}>Developer</div>
+        <div style={innerCard}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.85)" }}>Debug overlay</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.35)", marginTop: 2 }}>
+                {debugVisible ? "Live solver diagnostics visible" : "Hidden"}
+              </div>
+            </div>
+            <Toggle on={debugVisible} onChange={setDebugVisible} />
+          </div>
+        </div>
+      </div>
+
+      {/* ── MediaPipe info (updated to reflect current config) ───────────────── */}
       <div style={card}>
         <div style={sectionLabel}>MediaPipe</div>
         {[
-          { label: "Package", value: "@mediapipe/holistic 0.5" },
-          { label: "Pose model", value: "pose_landmark_heavy.tflite" },
-          { label: "Complexity", value: "2 — Heavy (max accuracy)" },
-          { label: "Smooth landmarks", value: "Enabled" },
-          { label: "Refine face", value: "Enabled (iris tracking)" },
-          { label: "Source", value: "Local — served from /mediapipe/holistic/" },
-        ].map(({ label, value }) => (
-          <div key={label} style={{ ...innerCard, marginTop: 4 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 8 }}>
-              <span style={{ fontSize: 11, color: "rgba(255,255,255,0.35)", flexShrink: 0 }}>{label}</span>
-              <span style={{ fontSize: 11, color: "rgba(255,255,255,0.65)", textAlign: "right" }}>{value}</span>
-            </div>
-          </div>
-        ))}
+          { label: "Package",           value: "@mediapipe/holistic 0.5" },
+          { label: "Complexity",        value: "1 — Balanced (OEF compensates)" },
+          { label: "Detection conf.",   value: "0.5" },
+          { label: "Tracking conf.",    value: "0.5" },
+          { label: "Smooth landmarks",  value: "Enabled (MediaPipe)" },
+          { label: "OEF on landmarks",  value: "Enabled (β=0.5 pose, β=0.001 hands)" },
+          { label: "Refine face",       value: "Enabled (iris tracking)" },
+          { label: "Source",            value: "Local — /mediapipe/holistic/" },
+        ].map(({ label, value }) => infoRow(label, value))}
       </div>
 
-      {/* Bridge card */}      <div style={card}>
+      {/* ── Bridge ───────────────────────────────────────────────────────────── */}
+      <div style={card}>
         <div style={sectionLabel}>Bridge</div>
         <div style={innerCard}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>

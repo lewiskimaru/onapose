@@ -1,112 +1,219 @@
-chunk-PN3T3PFL.js?v=09cd53d8:19835 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
-VRMAvatar.tsx:50 [vrm] loaded: VRM {scene: Group, meta: {…}, humanoid: _VRMHumanoid, expressionManager: _VRMExpressionManager, firstPerson: _VRMFirstPerson2, …}
-useWebSocket.ts:23 [ws] connected to bridge at http://localhost:8080
-Panel.tsx:225 Uncaught ReferenceError: noPadding is not defined
-    at Panel (Panel.tsx:225:61)
-    at Object.react_stack_bottom_frame (chunk-PN3T3PFL.js?v=09cd53d8:18241:20)
-    at renderWithHooks (chunk-PN3T3PFL.js?v=09cd53d8:5386:24)
-    at updateFunctionComponent (chunk-PN3T3PFL.js?v=09cd53d8:7207:21)
-    at beginWork (chunk-PN3T3PFL.js?v=09cd53d8:8257:20)
-    at runWithFiberInDEV (chunk-PN3T3PFL.js?v=09cd53d8:729:72)
-    at performUnitOfWork (chunk-PN3T3PFL.js?v=09cd53d8:12293:98)
-    at workLoopSync (chunk-PN3T3PFL.js?v=09cd53d8:12156:43)
-    at renderRootSync (chunk-PN3T3PFL.js?v=09cd53d8:12140:13)
-    at performWorkOnRoot (chunk-PN3T3PFL.js?v=09cd53d8:11559:37)
-Panel @ Panel.tsx:225
-react_stack_bottom_frame @ chunk-PN3T3PFL.js?v=09cd53d8:18241
-renderWithHooks @ chunk-PN3T3PFL.js?v=09cd53d8:5386
-updateFunctionComponent @ chunk-PN3T3PFL.js?v=09cd53d8:7207
-beginWork @ chunk-PN3T3PFL.js?v=09cd53d8:8257
-runWithFiberInDEV @ chunk-PN3T3PFL.js?v=09cd53d8:729
-performUnitOfWork @ chunk-PN3T3PFL.js?v=09cd53d8:12293
-workLoopSync @ chunk-PN3T3PFL.js?v=09cd53d8:12156
-renderRootSync @ chunk-PN3T3PFL.js?v=09cd53d8:12140
-performWorkOnRoot @ chunk-PN3T3PFL.js?v=09cd53d8:11559
-performSyncWorkOnRoot @ chunk-PN3T3PFL.js?v=09cd53d8:13249
-flushSyncWorkAcrossRoots_impl @ chunk-PN3T3PFL.js?v=09cd53d8:13146
-processRootScheduleInMicrotask @ chunk-PN3T3PFL.js?v=09cd53d8:13169
-(anonymous) @ chunk-PN3T3PFL.js?v=09cd53d8:13263
-<Panel>
-exports.jsxDEV @ react_jsx-dev-runtime.js?v=09cd53d8:247
-CameraPanel @ CameraPanel.tsx:24
-react_stack_bottom_frame @ chunk-PN3T3PFL.js?v=09cd53d8:18241
-renderWithHooks @ chunk-PN3T3PFL.js?v=09cd53d8:5386
-updateFunctionComponent @ chunk-PN3T3PFL.js?v=09cd53d8:7207
-beginWork @ chunk-PN3T3PFL.js?v=09cd53d8:8257
-runWithFiberInDEV @ chunk-PN3T3PFL.js?v=09cd53d8:729
-performUnitOfWork @ chunk-PN3T3PFL.js?v=09cd53d8:12293
-workLoopSync @ chunk-PN3T3PFL.js?v=09cd53d8:12156
-renderRootSync @ chunk-PN3T3PFL.js?v=09cd53d8:12140
-performWorkOnRoot @ chunk-PN3T3PFL.js?v=09cd53d8:11498
-performWorkOnRootViaSchedulerTask @ chunk-PN3T3PFL.js?v=09cd53d8:13237
-performWorkUntilDeadline @ chunk-AAM5PVYQ.js?v=09cd53d8:30
-<CameraPanel>
-exports.jsxDEV @ react_jsx-dev-runtime.js?v=09cd53d8:247
-App @ App.tsx:38
-react_stack_bottom_frame @ chunk-PN3T3PFL.js?v=09cd53d8:18241
-renderWithHooks @ chunk-PN3T3PFL.js?v=09cd53d8:5386
-updateFunctionComponent @ chunk-PN3T3PFL.js?v=09cd53d8:7207
-beginWork @ chunk-PN3T3PFL.js?v=09cd53d8:8257
-runWithFiberInDEV @ chunk-PN3T3PFL.js?v=09cd53d8:729
-performUnitOfWork @ chunk-PN3T3PFL.js?v=09cd53d8:12293
-workLoopSync @ chunk-PN3T3PFL.js?v=09cd53d8:12156
-renderRootSync @ chunk-PN3T3PFL.js?v=09cd53d8:12140
-performWorkOnRoot @ chunk-PN3T3PFL.js?v=09cd53d8:11498
-performWorkOnRootViaSchedulerTask @ chunk-PN3T3PFL.js?v=09cd53d8:13237
-performWorkUntilDeadline @ chunk-AAM5PVYQ.js?v=09cd53d8:30
-<App>
-exports.jsxDEV @ react_jsx-dev-runtime.js?v=09cd53d8:247
-(anonymous) @ main.tsx:4
-CameraPanel.tsx:24 An error occurred in the <Panel> component.
+# OnaPose — OSC Log Snapshot
+# Generated: 2026-04-06T21:20:56.720Z
+# Target: 127.0.0.1:39539
+# Protocol: VMC / OSC over UDP
 
-Consider adding an error boundary to your tree to customize error handling behavior.
-Visit https://react.dev/link/error-boundaries to learn more about error boundaries.
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.023 y:0.000 z:0.189
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.189
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.189
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.189
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.189
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.189
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.021 y:0.000 z:0.189
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.021 y:0.000 z:0.189
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.021 y:0.000 z:0.188
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.020 y:0.000 z:0.187
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.020 y:0.000 z:0.186
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.020 y:0.000 z:0.184
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.021 y:0.000 z:0.183
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.021 y:0.000 z:0.181
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.182
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.183
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.183
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.184
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.185
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
+03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.186
+03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
+03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
+03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
 
-defaultOnUncaughtError @ chunk-PN3T3PFL.js?v=09cd53d8:6698
-logUncaughtError @ chunk-PN3T3PFL.js?v=09cd53d8:6752
-runWithFiberInDEV @ chunk-PN3T3PFL.js?v=09cd53d8:729
-lane.callback @ chunk-PN3T3PFL.js?v=09cd53d8:6780
-callCallback @ chunk-PN3T3PFL.js?v=09cd53d8:5223
-commitCallbacks @ chunk-PN3T3PFL.js?v=09cd53d8:5235
-runWithFiberInDEV @ chunk-PN3T3PFL.js?v=09cd53d8:731
-commitLayoutEffectOnFiber @ chunk-PN3T3PFL.js?v=09cd53d8:9708
-flushLayoutEffects @ chunk-PN3T3PFL.js?v=09cd53d8:12656
-commitRoot @ chunk-PN3T3PFL.js?v=09cd53d8:12535
-commitRootWhenReady @ chunk-PN3T3PFL.js?v=09cd53d8:11748
-performWorkOnRoot @ chunk-PN3T3PFL.js?v=09cd53d8:11682
-performSyncWorkOnRoot @ chunk-PN3T3PFL.js?v=09cd53d8:13249
-flushSyncWorkAcrossRoots_impl @ chunk-PN3T3PFL.js?v=09cd53d8:13146
-processRootScheduleInMicrotask @ chunk-PN3T3PFL.js?v=09cd53d8:13169
-(anonymous) @ chunk-PN3T3PFL.js?v=09cd53d8:13263
-<Panel>
-exports.jsxDEV @ react_jsx-dev-runtime.js?v=09cd53d8:247
-CameraPanel @ CameraPanel.tsx:24
-react_stack_bottom_frame @ chunk-PN3T3PFL.js?v=09cd53d8:18241
-renderWithHooks @ chunk-PN3T3PFL.js?v=09cd53d8:5386
-updateFunctionComponent @ chunk-PN3T3PFL.js?v=09cd53d8:7207
-beginWork @ chunk-PN3T3PFL.js?v=09cd53d8:8257
-runWithFiberInDEV @ chunk-PN3T3PFL.js?v=09cd53d8:729
-performUnitOfWork @ chunk-PN3T3PFL.js?v=09cd53d8:12293
-workLoopSync @ chunk-PN3T3PFL.js?v=09cd53d8:12156
-renderRootSync @ chunk-PN3T3PFL.js?v=09cd53d8:12140
-performWorkOnRoot @ chunk-PN3T3PFL.js?v=09cd53d8:11498
-performWorkOnRootViaSchedulerTask @ chunk-PN3T3PFL.js?v=09cd53d8:13237
-performWorkUntilDeadline @ chunk-AAM5PVYQ.js?v=09cd53d8:30
-<CameraPanel>
-exports.jsxDEV @ react_jsx-dev-runtime.js?v=09cd53d8:247
-App @ App.tsx:38
-react_stack_bottom_frame @ chunk-PN3T3PFL.js?v=09cd53d8:18241
-renderWithHooks @ chunk-PN3T3PFL.js?v=09cd53d8:5386
-updateFunctionComponent @ chunk-PN3T3PFL.js?v=09cd53d8:7207
-beginWork @ chunk-PN3T3PFL.js?v=09cd53d8:8257
-runWithFiberInDEV @ chunk-PN3T3PFL.js?v=09cd53d8:729
-performUnitOfWork @ chunk-PN3T3PFL.js?v=09cd53d8:12293
-workLoopSync @ chunk-PN3T3PFL.js?v=09cd53d8:12156
-renderRootSync @ chunk-PN3T3PFL.js?v=09cd53d8:12140
-performWorkOnRoot @ chunk-PN3T3PFL.js?v=09cd53d8:11498
-performWorkOnRootViaSchedulerTask @ chunk-PN3T3PFL.js?v=09cd53d8:13237
-performWorkUntilDeadline @ chunk-AAM5PVYQ.js?v=09cd53d8:30
-<App>
-exports.jsxDEV @ react_jsx-dev-runtime.js?v=09cd53d8:247
-(anonymous) @ main.tsx:4
-chunk-5WPZWDSC.js?v=09cd53d8:17896 THREE.WebGLRenderer: Context Lost.
+
+# OnaPose — VMC Frame Snapshot
+# Generated: 2026-04-06T21:21:15.412Z
+# This is the last MocapFrame sent to the bridge, in raw JSON.
+# Euler angles are in radians. Hips.position is in meters (hip-relative).
+
+{
+  "riggedPose": {
+    "RightUpperArm": {
+      "x": 0,
+      "y": 0,
+      "z": -1.25
+    },
+    "RightLowerArm": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "LeftUpperArm": {
+      "x": 0,
+      "y": 0,
+      "z": 1.25
+    },
+    "LeftLowerArm": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "RightHand": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "LeftHand": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "RightUpperLeg": {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "rotationOrder": "XYZ"
+    },
+    "RightLowerLeg": {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "rotationOrder": "XYZ"
+    },
+    "LeftUpperLeg": {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "rotationOrder": "XYZ"
+    },
+    "LeftLowerLeg": {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "rotationOrder": "XYZ"
+    },
+    "Hips": {
+      "position": {
+        "x": -0.021119275795973946,
+        "y": 0,
+        "z": -0.20196879361839248
+      },
+      "worldPosition": {
+        "x": 0.0006959720954107149,
+        "y": 0,
+        "z": -0.032954354218121006
+      },
+      "rotation": {
+        "x": 0,
+        "y": -0.02058401600625594,
+        "z": -0.026854431705147903
+      }
+    },
+    "Spine": {
+      "x": 0,
+      "y": -0.15577951997151337,
+      "z": 0.10019575425332262
+    }
+  },
+  "riggedFace": {
+    "head": {
+      "y": -0.11302738169187077,
+      "x": -0.11696271390885181,
+      "z": 0.11017673034720002,
+      "width": 117.80839491115832,
+      "height": 89.58668249865877,
+      "position": {
+        "x": 314.8364496231079,
+        "y": 200.78488111495972,
+        "z": 36.6827255487442
+      },
+      "normalized": {
+        "y": -0.03597773300199125,
+        "x": -0.03723038815207389,
+        "z": 0.035070342496919434
+      },
+      "degrees": {
+        "y": -6.475991940358425,
+        "x": -6.701469867373301,
+        "z": 6.312661649445498
+      }
+    },
+    "eye": {
+      "l": 1,
+      "r": 1
+    },
+    "brow": 0,
+    "pupil": {
+      "x": 0.14438352323365355,
+      "y": -0.15755598542090024
+    },
+    "mouth": {
+      "x": -0.24784468124326398,
+      "y": 0,
+      "shape": {
+        "A": 0,
+        "E": 0,
+        "I": 0,
+        "O": 0,
+        "U": 0
+      }
+    }
+  },
+  "riggedLeftHand": {},
+  "riggedRightHand": {},
+  "timestamp": 1775510475408
+}

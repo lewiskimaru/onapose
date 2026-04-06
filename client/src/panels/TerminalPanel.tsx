@@ -264,7 +264,15 @@ function VmcTab() {
         <div style={sectionLabel}>Bone Stream  /VMC/Ext/Bone/Pos</div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 4 }}>
           {VMC_BONES.map((bone) => {
-            const active = oscLog.some((e) => e.summary.startsWith(bone));
+            const entry = oscLog.find((e) => e.summary.startsWith(bone));
+            // Parse "BoneName  x:0.000 y:0.000 z:0.000" and check for meaningful rotation
+            let active = false;
+            if (entry) {
+              const m = entry.summary.match(/x:([-\d.]+).*y:([-\d.]+).*z:([-\d.]+)/);
+              if (m) {
+                active = Math.abs(parseFloat(m[1])) + Math.abs(parseFloat(m[2])) + Math.abs(parseFloat(m[3])) > 0.001;
+              }
+            }
             return (
               <div key={bone} style={{
                 background: active ? "rgba(48,209,88,0.08)" : "#2c2c2e",

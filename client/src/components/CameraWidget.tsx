@@ -71,10 +71,14 @@ export function CameraWidget({ active, canvasRef, videoRef }: CameraWidgetProps)
     });
 
     holistic.setOptions({
-      modelComplexity: 2,
+      // Complexity 1 (default in XR Animator). One Euro Filter in VRMAvatar
+      // compensates for any landmark quality delta vs complexity 2 while saving
+      // ~15 ms/frame on mid-range hardware.
+      modelComplexity: 1,
       smoothLandmarks: true,
-      minDetectionConfidence: 0.7,
-      minTrackingConfidence: 0.7,
+      // 0.5 matches XR Animator — more robust when user enters frame or moves fast.
+      minDetectionConfidence: 0.5,
+      minTrackingConfidence: 0.5,
       refineFaceLandmarks: true,
     });
 
@@ -100,7 +104,11 @@ export function CameraWidget({ active, canvasRef, videoRef }: CameraWidgetProps)
     return () => {
       destroyed = true;
       camera.stop();
-      holistic.close();
+      // Defer close to prevent WASM destructor crash if the module is busy predicting
+      // (very common in React 18 Strict Mode double-mounts).
+      setTimeout(() => {
+        try { holistic.close(); } catch (e) { console.warn("holistic.close error:", e); }
+      }, 500);
       setVideoElement(null);
       setLoading(false);
     };

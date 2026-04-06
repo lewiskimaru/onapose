@@ -9,6 +9,7 @@ import { DocsPanel } from "./panels/DocsPanel";
 import { AboutModal } from "./panels/AboutModal";
 import { TerminalPanel } from "./panels/TerminalPanel";
 import { Experience } from "./components/Experience";
+import { DebugPanel } from "./panels/DebugPanel";
 
 export default function App() {
   const [avatar, setAvatar] = useState("default.vrm");
@@ -40,6 +41,7 @@ export default function App() {
       <TerminalPanel />
       <DocsPanel />
       <AboutModal />
+      <DebugPanel />
     </>
   );
 }

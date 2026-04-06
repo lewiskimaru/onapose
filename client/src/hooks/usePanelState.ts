@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export type PanelId = "camera" | "settings" | "docs" | "about" | "terminal";
+export type PanelId = "camera" | "settings" | "docs" | "about" | "terminal" | "debug";
 export type PanelStatus = "open" | "closed" | "minimized";
 
 interface PanelState {
@@ -18,6 +18,7 @@ export const usePanelState = create<PanelState>((set) => ({
     docs: "closed",
     about: "closed",
     terminal: "closed",
+    debug: "closed",
   },
   toggle: (id) =>
     set((s) => ({

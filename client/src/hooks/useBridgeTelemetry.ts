@@ -85,16 +85,29 @@ export const useBridgeTelemetry = create<TelemetryState>((set, get) => ({
         address: "/VMC/Ext/Root/Pos",
         summary: `Hips  x:${pose.Hips.position.x.toFixed(3)} y:${pose.Hips.position.y.toFixed(3)} z:${(-pose.Hips.position.z).toFixed(3)}`,
       },
-      {
-        id: _logId++, ts: now,
-        address: "/VMC/Ext/Bone/Pos",
-        summary: `LeftUpperArm  x:${pose.LeftUpperArm.x.toFixed(3)} y:${pose.LeftUpperArm.y.toFixed(3)} z:${pose.LeftUpperArm.z.toFixed(3)}`,
-      },
-      {
-        id: _logId++, ts: now,
-        address: "/VMC/Ext/Bone/Pos",
-        summary: `RightUpperArm  x:${pose.RightUpperArm.x.toFixed(3)} y:${pose.RightUpperArm.y.toFixed(3)} z:${pose.RightUpperArm.z.toFixed(3)}`,
-      },
+      // Log all body bones so the VMC tab can highlight them correctly
+      ...(
+        [
+          ["Spine",        pose.Spine],
+          ["Chest",        pose.Chest],
+          ["LeftUpperArm", pose.LeftUpperArm],
+          ["LeftLowerArm", pose.LeftLowerArm],
+          ["RightUpperArm",pose.RightUpperArm],
+          ["RightLowerArm",pose.RightLowerArm],
+          ["LeftUpperLeg", pose.LeftUpperLeg],
+          ["LeftLowerLeg", pose.LeftLowerLeg],
+          ["RightUpperLeg",pose.RightUpperLeg],
+          ["RightLowerLeg",pose.RightLowerLeg],
+          ["Neck",         (frame.riggedFace as any)?.head],
+        ] as [string, { x: number; y: number; z: number } | undefined][]
+      )
+        .filter(([, r]) => r != null)
+        .map(([name, r]) => ({
+          id: _logId++, ts: now,
+          address: "/VMC/Ext/Bone/Pos",
+          summary: `${name}  x:${r!.x.toFixed(3)} y:${r!.y.toFixed(3)} z:${r!.z.toFixed(3)}`,
+        }))
+      ,
       {
         id: _logId++, ts: now,
         address: "/VMC/Ext/Blend/Val",

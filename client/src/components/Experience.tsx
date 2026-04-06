@@ -48,8 +48,9 @@ function Wallpaper({ id, glb }: { id: string; glb?: string }) {
 
 export function Experience({ avatar }: ExperienceProps) {
   const controls = useRef(null);
-  const wallpaperId = useSettings((s) => s.wallpaper);
+  const wallpaperId  = useSettings((s) => s.wallpaper);
   const wallpaperDef = WALLPAPERS.find((w) => w.id === wallpaperId);
+  const solver = useSettings((s) => s.solver);
 
   return (
     <>
@@ -72,7 +73,7 @@ export function Experience({ avatar }: ExperienceProps) {
       <pointLight position={[-2, 1, -1]} intensity={0.8} color="#ff6644" />
 
       <group position-y={-1.25}>
-        <VRMAvatar modelPath={`models/${avatar}`} />
+        <VRMAvatar modelPath={`models/${avatar}`} solver={solver} />
       </group>
     </>
   );

@@ -182,7 +182,12 @@ export function VRMAvatar({ modelPath, solver = "kalidokit" }: VRMAvatarProps) {
     pushLog(`VRM loaded | solver=${solver} | spineToHipsRatio=${para.spineToHipsRatio.toFixed(3)} | hasChest=${para.spineToHipsRatio === 0}`);
     pushLog(`T-pose | shoulderWidth=${para.shoulderWidth.toFixed(3)} | leftArmLen=${para.leftArmLength.toFixed(3)}`);
     pushLog(`ForearmAxis L=(${para.leftForearmAxis.toArray().map((v: number)=>v.toFixed(2)).join(',')}) R=(${para.rightForearmAxis.toArray().map((v: number)=>v.toFixed(2)).join(',')})`);
-
+    const corrected = Object.keys(para.restPoseCorrections);
+    if (corrected.length > 0) {
+      pushLog(`RestPoseCorrections applied to: ${corrected.join(', ')}`);
+    } else {
+      pushLog(`RestPoseCorrections: none needed (model normalized correctly)`);
+    }
     // Reset state on new model load
     smoothNeckQ.current.identity();
     poseFilterBank.current      = [];
@@ -488,7 +493,15 @@ export function VRMAvatar({ modelPath, solver = "kalidokit" }: VRMAvatarProps) {
 
   const rotateBoneDirect = (boneName: string, q: Quaternion) => {
     const bone = userData.vrm.humanoid.getNormalizedBoneNode(boneName);
-    if (bone) bone.quaternion.copy(q);
+    if (!bone) return;
+    const correction = tPosePara.current?.restPoseCorrections[boneName];
+    if (correction) {
+      // Apply rest-pose correction: correction × solvedQ
+      // This compensates for models exported without proper normalization
+      bone.quaternion.copy(correction).multiply(q);
+    } else {
+      bone.quaternion.copy(q);
+    }
   };
 
   const rotateBoneFromEuler = (
@@ -500,7 +513,12 @@ export function VRMAvatar({ modelPath, solver = "kalidokit" }: VRMAvatarProps) {
     if (!bone) return;
     tmpEuler.set(value.x * flip.x, value.y * flip.y, value.z * flip.z);
     tmpQuat.setFromEuler(tmpEuler);
-    bone.quaternion.copy(tmpQuat);
+    const correction = tPosePara.current?.restPoseCorrections[boneName];
+    if (correction) {
+      bone.quaternion.copy(correction).multiply(tmpQuat);
+    } else {
+      bone.quaternion.copy(tmpQuat);
+    }
   };
 
   // ── Render loop ───────────────────────────────────────────────────────────
@@ -636,41 +654,33 @@ export function VRMAvatar({ modelPath, solver = "kalidokit" }: VRMAvatarProps) {
         rotateBoneFromEuler("rightUpperLeg", riggedPose.current.RightUpperLeg);
         rotateBoneFromEuler("rightLowerLeg", riggedPose.current.RightLowerLeg);
 
-        // Wrist roll (palm-normal) + 50/50 split for Kalidokit path
-        if (riggedLeftHand.current && para) {
+        // Wrist + fingers — Kalidokit path.
+        // Hand.solve() returns LeftWrist/RightWrist as full Euler rotations.
+        // Apply them directly — no separate roll solver needed here.
+        if (riggedLeftHand.current) {
           const leftHandBone = vrm.humanoid.getNormalizedBoneNode("leftHand");
-          if (leftHandBone) {
+          if (leftHandBone && riggedLeftHand.current.LeftWrist) {
             tmpEuler.set(
-              riggedLeftHand.current.LeftWrist?.x ?? 0,
-              riggedLeftHand.current.LeftWrist?.y ?? 0,
-              leftRollState.angle * 0.5
+              riggedLeftHand.current.LeftWrist.x,
+              riggedLeftHand.current.LeftWrist.y,
+              riggedLeftHand.current.LeftWrist.z,
             );
             tmpQuat.setFromEuler(tmpEuler);
             leftHandBone.quaternion.slerp(tmpQuat, Math.min(delta * 12, 1));
           }
-          const llArm = vrm.humanoid.getNormalizedBoneNode("leftLowerArm");
-          if (llArm && Math.abs(leftRollState.angle) > 0.001) {
-            tmpQuat.setFromAxisAngle(para.leftForearmAxis, leftRollState.angle * 0.5);
-            llArm.quaternion.multiply(tmpQuat);
-          }
           applyKalidokitFingers(vrm, riggedLeftHand.current, "left");
         }
 
-        if (riggedRightHand.current && para) {
+        if (riggedRightHand.current) {
           const rightHandBone = vrm.humanoid.getNormalizedBoneNode("rightHand");
-          if (rightHandBone) {
+          if (rightHandBone && riggedRightHand.current.RightWrist) {
             tmpEuler.set(
-              riggedRightHand.current.RightWrist?.x ?? 0,
-              riggedRightHand.current.RightWrist?.y ?? 0,
-              rightRollState.angle * 0.5
+              riggedRightHand.current.RightWrist.x,
+              riggedRightHand.current.RightWrist.y,
+              riggedRightHand.current.RightWrist.z,
             );
             tmpQuat.setFromEuler(tmpEuler);
             rightHandBone.quaternion.slerp(tmpQuat, Math.min(delta * 12, 1));
-          }
-          const rlArm = vrm.humanoid.getNormalizedBoneNode("rightLowerArm");
-          if (rlArm && Math.abs(rightRollState.angle) > 0.001) {
-            tmpQuat.setFromAxisAngle(para.rightForearmAxis, rightRollState.angle * 0.5);
-            rlArm.quaternion.multiply(tmpQuat);
           }
           applyKalidokitFingers(vrm, riggedRightHand.current, "right");
         }

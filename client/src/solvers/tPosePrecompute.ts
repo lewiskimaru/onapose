@@ -7,6 +7,8 @@
  *   - scale landmark distances to model proportions (arm-length normalisation)
  *   - compute lower_arm_fixedAxis for wrist-roll distribution
  *   - compute spine_to_hips_ratio for models without a Chest bone
+ *   - detect and correct bad rest-pose orientations (hands-up, feet-sideways, etc.)
+ *     caused by VRM models exported without proper normalization
  */
 
 import { Quaternion, Vector3 } from "three";
@@ -34,6 +36,21 @@ export interface TPosePara {
 
   /** Whether the loaded model is VRM1 */
   isVRM1: boolean;
+
+  /**
+   * Rest-pose correction quaternions for bones that deviate from the VRM T-pose spec.
+   *
+   * The VRM spec requires all bones to be exported with identity local rotations
+   * (normalization baked into the mesh). Many community models skip this step,
+   * leaving residual rotations that cause hands to face up, feet to point sideways, etc.
+   *
+   * These corrections are the INVERSE of the detected rest-pose deviation.
+   * Apply them by premultiplying onto the solved rotation before writing to the bone:
+   *   bone.quaternion.copy(correction).multiply(solvedQ)
+   *
+   * If a bone's rest pose is correct, its correction is identity (no-op).
+   */
+  restPoseCorrections: Partial<Record<string, Quaternion>>;
 }
 
 // Bone names we care about
@@ -59,6 +76,103 @@ function worldPos(vrm: VRM, boneName: string): Vector3 | null {
   const wp = new Vector3();
   node.getWorldPosition(wp);
   return wp;
+}
+
+/**
+ * Detect rest-pose correction quaternions for arm, hand, and foot bones.
+ *
+ * The VRM T-pose spec + three-vrm normalized space defines:
+ *   - leftUpperArm / rightUpperArm:
+ *       local +Z should point toward camera (-Z world).
+ *       Kalidokit drives raise/lower via UpperArm.z (rotation around local Z).
+ *       If local Z is flipped (+Z world), the raise direction is inverted —
+ *       raising your arm makes the model drop its arm.
+ *   - leftHand / rightHand:  palm faces DOWN (local +Y → -Y world)
+ *   - leftFoot / rightFoot:  toes point forward, not sideways
+ *
+ * The correction is applied as:  finalQ = correction × solvedQ
+ */
+function detectRestPoseCorrections(vrm: VRM): Partial<Record<string, Quaternion>> {
+  const corrections: Partial<Record<string, Quaternion>> = {};
+
+  vrm.scene.updateMatrixWorld(true);
+
+  // ── UpperArm Z-axis check ───────────────────────────────────────────────────
+  // In three-vrm normalized space, the UpperArm's local +Z should point toward
+  // the camera (-Z world). Kalidokit's UpperArm.z rotation raises/lowers the arm
+  // around this axis. If local +Z points away from camera (+Z world), the rotation
+  // is inverted — raising your arm makes the model drop its arm.
+  for (const [boneName] of [
+    ["leftUpperArm"] as const,
+    ["rightUpperArm"] as const,
+  ]) {
+    const boneNode = vrm.humanoid.getNormalizedBoneNode(boneName);
+    if (!boneNode) continue;
+
+    const worldQ = new Quaternion();
+    boneNode.getWorldQuaternion(worldQ);
+
+    // Local +Z in world space — should point toward camera (negative Z world)
+    const localZ = new Vector3(0, 0, 1).applyQuaternion(worldQ);
+
+    // If localZ.z > 0.3, the bone's Z axis is pointing away — inversion needed
+    if (localZ.z > 0.3) {
+      // 180° around the arm's outward axis (local +X direction in world space)
+      const localX = new Vector3(1, 0, 0).applyQuaternion(worldQ);
+      const correction = new Quaternion().setFromAxisAngle(localX, Math.PI);
+      corrections[boneName] = correction;
+    }
+  }
+
+  // ── Hand palm orientation check ─────────────────────────────────────────────
+  // In a correct VRM T-pose, the palm faces down: the hand bone's local +Y axis
+  // points in the -Y world direction (palm down = back of hand faces up).
+  // If it points +Y (palm up), we need a 180° correction around the forearm axis.
+  for (const [boneName, forearmName, sign] of [
+    ["leftHand",  "leftLowerArm",  1] as const,
+    ["rightHand", "rightLowerArm", -1] as const,
+  ]) {
+    const handNode = vrm.humanoid.getNormalizedBoneNode(boneName);
+    if (!handNode) continue;
+
+    const worldQ = new Quaternion();
+    handNode.getWorldQuaternion(worldQ);
+
+    const palmNormal = new Vector3(0, 1, 0).applyQuaternion(worldQ);
+
+    if (palmNormal.y > 0.5) {
+      const lowerArmNode = vrm.humanoid.getNormalizedBoneNode(forearmName);
+      const handPos = new Vector3();
+      const lowerArmPos = new Vector3();
+      handNode.getWorldPosition(handPos);
+      if (lowerArmNode) lowerArmNode.getWorldPosition(lowerArmPos);
+
+      const forearmAxis = handPos.clone().sub(lowerArmPos).normalize();
+      if (forearmAxis.lengthSq() < 0.01) forearmAxis.set(sign, 0, 0);
+
+      const correction = new Quaternion().setFromAxisAngle(forearmAxis, Math.PI);
+      corrections[boneName] = correction;
+    }
+  }
+
+  // ── Foot orientation check ──────────────────────────────────────────────────
+  for (const boneName of ["leftFoot", "rightFoot"] as const) {
+    const footNode = vrm.humanoid.getNormalizedBoneNode(boneName);
+    if (!footNode) continue;
+
+    const worldQ = new Quaternion();
+    footNode.getWorldQuaternion(worldQ);
+
+    const footForward = new Vector3(0, 0, 1).applyQuaternion(worldQ);
+
+    if (Math.abs(footForward.x) > 0.7) {
+      const angle = Math.atan2(footForward.x, footForward.z) * -1;
+      const correction = new Quaternion().setFromAxisAngle(new Vector3(0, 1, 0), angle);
+      corrections[boneName] = correction;
+    }
+  }
+
+  return corrections;
 }
 
 export function computeTPosePara(vrm: VRM): TPosePara {
@@ -116,6 +230,9 @@ export function computeTPosePara(vrm: VRM): TPosePara {
   // ── VRM version ─────────────────────────────────────────────────────────────
   const isVRM1 = parseInt((vrm.meta as { metaVersion?: string }).metaVersion ?? "0") > 0;
 
+  // ── Rest-pose corrections ───────────────────────────────────────────────────
+  const restPoseCorrections = detectRestPoseCorrections(vrm);
+
   return {
     pos0,
     shoulderWidth: shoulderWidth || 0.3,
@@ -125,5 +242,6 @@ export function computeTPosePara(vrm: VRM): TPosePara {
     rightForearmAxis,
     spineToHipsRatio,
     isVRM1,
+    restPoseCorrections,
   };
 }

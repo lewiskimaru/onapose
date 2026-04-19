@@ -12,7 +12,7 @@ import { Experience } from "./components/Experience";
 import { DebugPanel } from "./panels/DebugPanel";
 
 export default function App() {
-  const [avatar, setAvatar] = useState("default.vrm");
+  const [avatar, setAvatar] = useState("KELP_RIG.vrm");
 
   return (
     <>

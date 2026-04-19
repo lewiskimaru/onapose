@@ -1,219 +1,181 @@
-# OnaPose — OSC Log Snapshot
-# Generated: 2026-04-06T21:20:56.720Z
-# Target: 127.0.0.1:39539
-# Protocol: VMC / OSC over UDP
-
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.023 y:0.000 z:0.189
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.189
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.189
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.189
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.189
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.189
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.021 y:0.000 z:0.189
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.021 y:0.000 z:0.189
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.021 y:0.000 z:0.188
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.020 y:0.000 z:0.187
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.020 y:0.000 z:0.186
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.020 y:0.000 z:0.184
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.021 y:0.000 z:0.183
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.021 y:0.000 z:0.181
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.182
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.183
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.183
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.184
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.185
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-03:45:20  /VMC/Ext/Root/Pos         Hips  x:-0.022 y:0.000 z:0.186
-03:45:20  /VMC/Ext/Bone/Pos         LeftUpperArm  x:0.000 y:0.000 z:1.250
-03:45:20  /VMC/Ext/Bone/Pos         RightUpperArm  x:0.000 y:0.000 z:-1.250
-03:45:20  /VMC/Ext/Blend/Val        aa:0.00  ih:0.00  ee:0.00  oh:0.00  ou:0.00
-
-
-# OnaPose — VMC Frame Snapshot
-# Generated: 2026-04-06T21:21:15.412Z
-# This is the last MocapFrame sent to the bridge, in raw JSON.
-# Euler angles are in radians. Hips.position is in meters (hip-relative).
-
-{
-  "riggedPose": {
-    "RightUpperArm": {
-      "x": 0,
-      "y": 0,
-      "z": -1.25
-    },
-    "RightLowerArm": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "LeftUpperArm": {
-      "x": 0,
-      "y": 0,
-      "z": 1.25
-    },
-    "LeftLowerArm": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "RightHand": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "LeftHand": {
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "RightUpperLeg": {
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "rotationOrder": "XYZ"
-    },
-    "RightLowerLeg": {
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "rotationOrder": "XYZ"
-    },
-    "LeftUpperLeg": {
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "rotationOrder": "XYZ"
-    },
-    "LeftLowerLeg": {
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "rotationOrder": "XYZ"
-    },
-    "Hips": {
-      "position": {
-        "x": -0.021119275795973946,
-        "y": 0,
-        "z": -0.20196879361839248
-      },
-      "worldPosition": {
-        "x": 0.0006959720954107149,
-        "y": 0,
-        "z": -0.032954354218121006
-      },
-      "rotation": {
-        "x": 0,
-        "y": -0.02058401600625594,
-        "z": -0.026854431705147903
-      }
-    },
-    "Spine": {
-      "x": 0,
-      "y": -0.15577951997151337,
-      "z": 0.10019575425332262
-    }
-  },
-  "riggedFace": {
-    "head": {
-      "y": -0.11302738169187077,
-      "x": -0.11696271390885181,
-      "z": 0.11017673034720002,
-      "width": 117.80839491115832,
-      "height": 89.58668249865877,
-      "position": {
-        "x": 314.8364496231079,
-        "y": 200.78488111495972,
-        "z": 36.6827255487442
-      },
-      "normalized": {
-        "y": -0.03597773300199125,
-        "x": -0.03723038815207389,
-        "z": 0.035070342496919434
-      },
-      "degrees": {
-        "y": -6.475991940358425,
-        "x": -6.701469867373301,
-        "z": 6.312661649445498
-      }
-    },
-    "eye": {
-      "l": 1,
-      "r": 1
-    },
-    "brow": 0,
-    "pupil": {
-      "x": 0.14438352323365355,
-      "y": -0.15755598542090024
-    },
-    "mouth": {
-      "x": -0.24784468124326398,
-      "y": 0,
-      "shape": {
-        "A": 0,
-        "E": 0,
-        "I": 0,
-        "O": 0,
-        "U": 0
-      }
-    }
-  },
-  "riggedLeftHand": {},
-  "riggedRightHand": {},
-  "timestamp": 1775510475408
-}
+chunk-PN3T3PFL.js?v=09cd53d8:19835 Download the React DevTools for a better development experience: https://react.dev/link/react-devtools
+useDebugStore.ts:89 [onapose-debug] VRM loaded | solver=kalidokit | spineToHipsRatio=0.000 | hasChest=true
+useDebugStore.ts:89 [onapose-debug] T-pose | shoulderWidth=0.304 | leftArmLen=0.444
+useDebugStore.ts:89 [onapose-debug] ForearmAxis L=(1.00,-0.00,0.08) R=(-1.00,-0.00,0.08)
+useWebSocket.ts:23 [ws] connected to bridge at http://localhost:8080
+holistic_solution_simd_wasm_bin.js:9 I0000 00:00:1775511679.159000       1 gl_context_webgl.cc:151] Successfully created a WebGL context with major version 3 and handle 3
+put_char @ holistic_solution_simd_wasm_bin.js:9
+write @ holistic_solution_simd_wasm_bin.js:9
+write @ holistic_solution_simd_wasm_bin.js:9
+doWritev @ holistic_solution_simd_wasm_bin.js:9
+_fd_write @ holistic_solution_simd_wasm_bin.js:9
+$func9154 @ holistic_solution_simd_wasm_bin.wasm:0x55f1be
+$func9164 @ holistic_solution_simd_wasm_bin.wasm:0x55f933
+$func9165 @ holistic_solution_simd_wasm_bin.wasm:0x55f9de
+$func8780 @ holistic_solution_simd_wasm_bin.wasm:0x533c75
+$func8779 @ holistic_solution_simd_wasm_bin.wasm:0x533c54
+$func8777 @ holistic_solution_simd_wasm_bin.wasm:0x533900
+$func8758 @ holistic_solution_simd_wasm_bin.wasm:0x532516
+$func8757 @ holistic_solution_simd_wasm_bin.wasm:0x531793
+$func7980 @ holistic_solution_simd_wasm_bin.wasm:0x4f0694
+$func7469 @ holistic_solution_simd_wasm_bin.wasm:0x4b325a
+$func7265 @ holistic_solution_simd_wasm_bin.wasm:0x49e620
+$func251 @ holistic_solution_simd_wasm_bin.wasm:0x2319e
+$func221 @ holistic_solution_simd_wasm_bin.wasm:0x1e94a
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+(anonymous) @ @mediapipe_holistic.js?v=09cd53d8:2338
+ua @ @mediapipe_holistic.js?v=09cd53d8:193
+next @ @mediapipe_holistic.js?v=09cd53d8:210
+b @ @mediapipe_holistic.js?v=09cd53d8:227
+Promise.then
+f @ @mediapipe_holistic.js?v=09cd53d8:234
+Promise.then
+f @ @mediapipe_holistic.js?v=09cd53d8:234
+(anonymous) @ @mediapipe_holistic.js?v=09cd53d8:236
+wa @ @mediapipe_holistic.js?v=09cd53d8:232
+D @ @mediapipe_holistic.js?v=09cd53d8:240
+x.send @ @mediapipe_holistic.js?v=09cd53d8:2245
+(anonymous) @ @mediapipe_holistic.js?v=09cd53d8:2557
+ua @ @mediapipe_holistic.js?v=09cd53d8:193
+next @ @mediapipe_holistic.js?v=09cd53d8:210
+(anonymous) @ @mediapipe_holistic.js?v=09cd53d8:236
+wa @ @mediapipe_holistic.js?v=09cd53d8:232
+D @ @mediapipe_holistic.js?v=09cd53d8:240
+x.send @ @mediapipe_holistic.js?v=09cd53d8:2556
+onFrame @ CameraWidget.tsx:96
+Q @ @mediapipe_camera_utils.js?v=09cd53d8:448
+(anonymous) @ @mediapipe_camera_utils.js?v=09cd53d8:435
+requestAnimationFrame
+P @ @mediapipe_camera_utils.js?v=09cd53d8:434
+Q @ @mediapipe_camera_utils.js?v=09cd53d8:451
+(anonymous) @ @mediapipe_camera_utils.js?v=09cd53d8:435
+requestAnimationFrame
+P @ @mediapipe_camera_utils.js?v=09cd53d8:434
+Q @ @mediapipe_camera_utils.js?v=09cd53d8:451
+(anonymous) @ @mediapipe_camera_utils.js?v=09cd53d8:435
+requestAnimationFrame
+P @ @mediapipe_camera_utils.js?v=09cd53d8:434
+Q @ @mediapipe_camera_utils.js?v=09cd53d8:451
+(anonymous) @ @mediapipe_camera_utils.js?v=09cd53d8:435
+requestAnimationFrame
+P @ @mediapipe_camera_utils.js?v=09cd53d8:434
+O.a.video.onloadedmetadata @ @mediapipe_camera_utils.js?v=09cd53d8:443
+holistic_solution_simd_wasm_bin.js:9 I0000 00:00:1775511679.161000       1 gl_context.cc:359] GL version: 3.0 (OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)))
+put_char @ holistic_solution_simd_wasm_bin.js:9
+write @ holistic_solution_simd_wasm_bin.js:9
+write @ holistic_solution_simd_wasm_bin.js:9
+doWritev @ holistic_solution_simd_wasm_bin.js:9
+_fd_write @ holistic_solution_simd_wasm_bin.js:9
+$func9154 @ holistic_solution_simd_wasm_bin.wasm:0x55f1be
+$func9164 @ holistic_solution_simd_wasm_bin.wasm:0x55f933
+$func9165 @ holistic_solution_simd_wasm_bin.wasm:0x55f9de
+$func8780 @ holistic_solution_simd_wasm_bin.wasm:0x533c75
+$func8779 @ holistic_solution_simd_wasm_bin.wasm:0x533c54
+$func8777 @ holistic_solution_simd_wasm_bin.wasm:0x533900
+$func8758 @ holistic_solution_simd_wasm_bin.wasm:0x532516
+$func8757 @ holistic_solution_simd_wasm_bin.wasm:0x531793
+$func7925 @ holistic_solution_simd_wasm_bin.wasm:0x4ee9b9
+$func7853 @ holistic_solution_simd_wasm_bin.wasm:0x4ec3c6
+$func7852 @ holistic_solution_simd_wasm_bin.wasm:0x4ec294
+$func7980 @ holistic_solution_simd_wasm_bin.wasm:0x4f0747
+$func7469 @ holistic_solution_simd_wasm_bin.wasm:0x4b325a
+$func7265 @ holistic_solution_simd_wasm_bin.wasm:0x49e620
+$func251 @ holistic_solution_simd_wasm_bin.wasm:0x2319e
+$func221 @ holistic_solution_simd_wasm_bin.wasm:0x1e94a
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+(anonymous) @ @mediapipe_holistic.js?v=09cd53d8:2338
+ua @ @mediapipe_holistic.js?v=09cd53d8:193
+next @ @mediapipe_holistic.js?v=09cd53d8:210
+b @ @mediapipe_holistic.js?v=09cd53d8:227
+Promise.then
+f @ @mediapipe_holistic.js?v=09cd53d8:234
+Promise.then
+f @ @mediapipe_holistic.js?v=09cd53d8:234
+(anonymous) @ @mediapipe_holistic.js?v=09cd53d8:236
+wa @ @mediapipe_holistic.js?v=09cd53d8:232
+D @ @mediapipe_holistic.js?v=09cd53d8:240
+x.send @ @mediapipe_holistic.js?v=09cd53d8:2245
+(anonymous) @ @mediapipe_holistic.js?v=09cd53d8:2557
+ua @ @mediapipe_holistic.js?v=09cd53d8:193
+next @ @mediapipe_holistic.js?v=09cd53d8:210
+(anonymous) @ @mediapipe_holistic.js?v=09cd53d8:236
+wa @ @mediapipe_holistic.js?v=09cd53d8:232
+D @ @mediapipe_holistic.js?v=09cd53d8:240
+x.send @ @mediapipe_holistic.js?v=09cd53d8:2556
+onFrame @ CameraWidget.tsx:96
+Q @ @mediapipe_camera_utils.js?v=09cd53d8:448
+(anonymous) @ @mediapipe_camera_utils.js?v=09cd53d8:435
+requestAnimationFrame
+P @ @mediapipe_camera_utils.js?v=09cd53d8:434
+Q @ @mediapipe_camera_utils.js?v=09cd53d8:451
+(anonymous) @ @mediapipe_camera_utils.js?v=09cd53d8:435
+requestAnimationFrame
+P @ @mediapipe_camera_utils.js?v=09cd53d8:434
+Q @ @mediapipe_camera_utils.js?v=09cd53d8:451
+(anonymous) @ @mediapipe_camera_utils.js?v=09cd53d8:435
+requestAnimationFrame
+P @ @mediapipe_camera_utils.js?v=09cd53d8:434
+Q @ @mediapipe_camera_utils.js?v=09cd53d8:451
+(anonymous) @ @mediapipe_camera_utils.js?v=09cd53d8:435
+requestAnimationFrame
+P @ @mediapipe_camera_utils.js?v=09cd53d8:434
+O.a.video.onloadedmetadata @ @mediapipe_camera_utils.js?v=09cd53d8:443
+holistic_solution_simd_wasm_bin.js:9 W0000 00:00:1775511679.161000       1 gl_context.cc:1000] OpenGL error checking is disabled
+put_char @ holistic_solution_simd_wasm_bin.js:9
+write @ holistic_solution_simd_wasm_bin.js:9
+write @ holistic_solution_simd_wasm_bin.js:9
+doWritev @ holistic_solution_simd_wasm_bin.js:9
+_fd_write @ holistic_solution_simd_wasm_bin.js:9
+$func9154 @ holistic_solution_simd_wasm_bin.wasm:0x55f1be
+$func9164 @ holistic_solution_simd_wasm_bin.wasm:0x55f933
+$func9165 @ holistic_solution_simd_wasm_bin.wasm:0x55f9de
+$func8780 @ holistic_solution_simd_wasm_bin.wasm:0x533c75
+$func8779 @ holistic_solution_simd_wasm_bin.wasm:0x533c54
+$func8777 @ holistic_solution_simd_wasm_bin.wasm:0x533900
+$func8758 @ holistic_solution_simd_wasm_bin.wasm:0x532516
+$func8757 @ holistic_solution_simd_wasm_bin.wasm:0x531793
+$func7853 @ holistic_solution_simd_wasm_bin.wasm:0x4ec42a
+$func7852 @ holistic_solution_simd_wasm_bin.wasm:0x4ec294
+$func7980 @ holistic_solution_simd_wasm_bin.wasm:0x4f0747
+$func7469 @ holistic_solution_simd_wasm_bin.wasm:0x4b325a
+$func7265 @ holistic_solution_simd_wasm_bin.wasm:0x49e620
+$func251 @ holistic_solution_simd_wasm_bin.wasm:0x2319e
+$func221 @ holistic_solution_simd_wasm_bin.wasm:0x1e94a
+(anonymous) @ holistic_solution_simd_wasm_bin.js:9
+(anonymous) @ @mediapipe_holistic.js?v=09cd53d8:2338
+ua @ @mediapipe_holistic.js?v=09cd53d8:193
+next @ @mediapipe_holistic.js?v=09cd53d8:210
+b @ @mediapipe_holistic.js?v=09cd53d8:227
+Promise.then
+f @ @mediapipe_holistic.js?v=09cd53d8:234
+Promise.then
+f @ @mediapipe_holistic.js?v=09cd53d8:234
+(anonymous) @ @mediapipe_holistic.js?v=09cd53d8:236
+wa @ @mediapipe_holistic.js?v=09cd53d8:232
+D @ @mediapipe_holistic.js?v=09cd53d8:240
+x.send @ @mediapipe_holistic.js?v=09cd53d8:2245
+(anonymous) @ @mediapipe_holistic.js?v=09cd53d8:2557
+ua @ @mediapipe_holistic.js?v=09cd53d8:193
+next @ @mediapipe_holistic.js?v=09cd53d8:210
+(anonymous) @ @mediapipe_holistic.js?v=09cd53d8:236
+wa @ @mediapipe_holistic.js?v=09cd53d8:232
+D @ @mediapipe_holistic.js?v=09cd53d8:240
+x.send @ @mediapipe_holistic.js?v=09cd53d8:2556
+onFrame @ CameraWidget.tsx:96
+Q @ @mediapipe_camera_utils.js?v=09cd53d8:448
+(anonymous) @ @mediapipe_camera_utils.js?v=09cd53d8:435
+requestAnimationFrame
+P @ @mediapipe_camera_utils.js?v=09cd53d8:434
+Q @ @mediapipe_camera_utils.js?v=09cd53d8:451
+(anonymous) @ @mediapipe_camera_utils.js?v=09cd53d8:435
+requestAnimationFrame
+P @ @mediapipe_camera_utils.js?v=09cd53d8:434
+Q @ @mediapipe_camera_utils.js?v=09cd53d8:451
+(anonymous) @ @mediapipe_camera_utils.js?v=09cd53d8:435
+requestAnimationFrame
+P @ @mediapipe_camera_utils.js?v=09cd53d8:434
+Q @ @mediapipe_camera_utils.js?v=09cd53d8:451
+(anonymous) @ @mediapipe_camera_utils.js?v=09cd53d8:435
+requestAnimationFrame
+P @ @mediapipe_camera_utils.js?v=09cd53d8:434
+O.a.video.onloadedmetadata @ @mediapipe_camera_utils.js?v=09cd53d8:443

@@ -4,6 +4,7 @@ import { useSettings, WALLPAPERS, SOLVER_OPTIONS } from "../hooks/useSettings";
 import { usePanelState } from "../hooks/usePanelState";
 
 const MODELS = [
+  "KELP_RIG.vrm",
   "default.vrm",
   "onapose-model1.vrm",
   "262410318834873893.vrm",
